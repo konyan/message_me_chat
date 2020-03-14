@@ -1,6 +1,6 @@
-<h2 class="ui center aligned header">Weclome to MessageMe <em>a Completet Chat App</em></h2>
+<h2 class="ui center aligned large header">Weclome to MessageMe <em>a Completet Chat App</em></h2>
 
-<h4 class="ui center aligned icon header">
+<h4 class="ui center aligned medium icon header">
   <i class="circular power off
  icon orange"></i>
   Login to continue
@@ -9,24 +9,25 @@
 <div class="ui placeholder segment">
   <div class="ui two column very relaxed stackable grid">
     <div class="column">
-      <div class="ui form">
+      <%= form_for(:session, html:{class: "ui form", role: "form"}, url: login_path) do |f| %>
         <div class="field">
-          <label>Username</label>
+          <%= f.label :username ,"Username"%>
           <div class="ui left icon input">
-            <input type="text" placeholder="Username">
+            <%= f.text_field :username, placeholder: "Username"%>
             <i class="user icon"></i>
           </div>
         </div>
         <div class="field">
-          <label>Password</label>
+          <%= f.label :password,"Password"%>
           <div class="ui left icon input">
-            <input type="password" placeholder="password">
+            <%= f.password_field :password, placeholder: "Password"%>
             <i class="lock icon"></i>
           </div>
         </div>
-        <div class="ui orange submit button">Login</div>
-      </div>
+        <%= f.submit "Login", class: "ui orange submit button"%>
+      <% end %>
     </div>
+
     <div class="middle aligned column">
       <div class="ui big button orange">
         <i class="signup icon "></i>
