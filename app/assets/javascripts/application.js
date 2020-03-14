@@ -17,6 +17,12 @@
 //= require semantic-ui
 //= require_tree .
 
+scroll_bottom = function() {
+  if ($("#chat-layout").length > 0) {
+    $("#chat-layout").scrollTop($("#chat-layout")[0].scrollHeight);
+  }
+};
+
 $(document).on("turbolinks:load", function() {
   $(".ui.dropdown").dropdown();
   $(".message .close").on("click", function() {
@@ -24,4 +30,5 @@ $(document).on("turbolinks:load", function() {
       .closest(".message")
       .transition("fade");
   });
+  scroll_bottom();
 });
